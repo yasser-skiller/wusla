@@ -1,30 +1,63 @@
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <Header />
+    <router-view />
+    <CallUs/>
+    <Footer />
   </div>
-  <router-view />
 </template>
+
+<script>
+import Header from "@/components/Global/Header/Header.vue";
+import Footer from "@/components/Global/Footer/Footer.vue";
+import CallUs from "@/views/CallUs.vue"
+
+export default {
+  name: "App",
+  components: {
+    Header,
+    Footer,
+    CallUs
+  },
+};
+</script>
 
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Almarai", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  direction: rtl;
+  font-size: 16px;
+  text-align: start !important;
 }
 
-#nav {
-  padding: 30px;
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+a {
+  text-decoration: none !important;
+}
+
+:root {
+  --mainColor: #922d3e;
+  --GrayColor: #fafafa;
+  --SecGrayColor:#9a9a9a;
+}
+.TitleFont {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--mainColor);
+}
+.MainFont{
+    font-size: 14px;
+}
+.bg-MainColor {
+  background-color: var(--mainColor) !important;
+}
+.SecGrayColor{
+  color:var(--SecGrayColor);
+}
+.bg-gray {
+  background-color: var(--GrayColor);
 }
 </style>

@@ -64,7 +64,7 @@
         </div>
       </form>
     </div>
-    <div style="height: 300px"></div>
+    <div class="space"></div>
   </div>
 </template>
 
@@ -111,5 +111,11 @@ export default {
 }
 .rounded {
   border-radius: 20px !important;
+}
+.space{
+  height: 350px;
+  @media (max-width:535px) {
+    height: 460px;
+  }
 }
 </style>

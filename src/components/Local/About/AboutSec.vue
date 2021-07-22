@@ -26,6 +26,8 @@
   </div>
 </template>
 <script>
+import axios from "axios";
+
 export default {
   name: "AboutSec",
   mounted() {
@@ -36,11 +38,15 @@ export default {
       Abouts: [],
     };
   },
+  
   methods: {
     async fetchData() {
-      const res = await fetch("Data.json");
-      const val = await res.json();
-      this.Abouts = val.About;
+      try {
+        const res = await axios.get(`Data.json`);
+        this.Abouts = res.data.About;
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
 };

@@ -2,7 +2,7 @@
   <div id="nav">
     <Header />
     <router-view />
-    <CallUs/>
+    <CallUs />
     <Footer />
   </div>
 </template>
@@ -10,14 +10,14 @@
 <script>
 import Header from "@/components/Global/Header/Header.vue";
 import Footer from "@/components/Global/Footer/Footer.vue";
-import CallUs from "@/views/CallUs.vue"
+import CallUs from "@/views/CallUs.vue";
 
 export default {
   name: "App",
   components: {
     Header,
     Footer,
-    CallUs
+    CallUs,
   },
 };
 </script>
@@ -32,8 +32,6 @@ export default {
   text-align: start !important;
 }
 
-
-
 a {
   text-decoration: none !important;
 }
@@ -41,23 +39,29 @@ a {
 :root {
   --mainColor: #922d3e;
   --GrayColor: #fafafa;
-  --SecGrayColor:#9a9a9a;
+  --SecGrayColor: #9a9a9a;
 }
 .TitleFont {
   font-size: 30px;
   font-weight: 700;
   color: var(--mainColor);
 }
-.MainFont{
-    font-size: 14px;
+.mainColor {
+  color: var(--mainColor);
+}
+.MainFont {
+  font-size: 14px;
 }
 .bg-MainColor {
   background-color: var(--mainColor) !important;
 }
-.SecGrayColor{
-  color:var(--SecGrayColor);
+.SecGrayColor {
+  color: var(--SecGrayColor);
 }
 .bg-gray {
   background-color: var(--GrayColor);
+}
+.cursorPointer {
+  cursor: pointer;
 }
 </style>

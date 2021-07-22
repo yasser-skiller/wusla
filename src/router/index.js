@@ -5,6 +5,10 @@ import Programmes from "../views/Programmes.vue";
 import Service from "../views/Service.vue";
 import Bloger from "../views/Bloger.vue";
 import CallUs from "../views/CallUs.vue";
+import ProgrammeDetails from "../views/ProgrammeDetails.vue";
+import BlogersDetails from "../views/BlogersDetails.vue";
+import ServicesDetails from "../views/ServicesDetails.vue";
+import NotFound from "../views/NotFound.vue";
 
 const routes = [
   {
@@ -15,27 +19,47 @@ const routes = [
   {
     path: "/about",
     name: "About",
-    component: About
+    component: About,
   },
   {
     path: "/Programmes",
     name: "Programmes",
-    component: Programmes
+    component: Programmes,
   },
   {
     path: "/Service",
     name: "Service",
-    component: Service
+    component: Service,
   },
   {
     path: "/Bloger",
     name: "Bloger",
-    component: Bloger
+    component: Bloger,
   },
   {
     path: "/CallUs",
     name: "CallUs",
-    component: CallUs
+    component: CallUs,
+  },
+  {
+    path: "/ProgrammeDetails",
+    name: "ProgrammeDetails",
+    component: ProgrammeDetails,
+  },
+  {
+    path: "/BlogersDetails",
+    name: "BlogersDetails",
+    component: BlogersDetails,
+  },
+  {
+    path: "/ServicesDetails",
+    name: "ServicesDetails",
+    component: ServicesDetails,
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: "NotFound",
+    component: NotFound,
   },
 ];
 

@@ -78,6 +78,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "Footer",
   mounted() {
@@ -90,9 +92,12 @@ export default {
   },
   methods: {
     async fetchData() {
-      const res = await fetch("Data.json");
-      const val = await res.json();
-      this.imgs = val.Logo;
+      try {
+        const res = await axios.get(`Data.json`);
+        this.imgs = res.data.Logo;
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
 };
@@ -102,6 +107,9 @@ export default {
 input,
 textarea {
   border-radius: 15px;
+}
+ul{
+  list-style-type: none;
 }
 .Footer {
   position: relative;
@@ -114,7 +122,7 @@ textarea {
       bottom: 525px;
     }
     @media (max-width: 440px) {
-      bottom: 610px;
+      bottom: 660px;
     }
   }
 }

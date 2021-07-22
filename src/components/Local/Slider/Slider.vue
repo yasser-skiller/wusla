@@ -61,6 +61,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "Slider",
    mounted() {
@@ -73,10 +75,12 @@ export default {
   },
   methods: {
     async fetchData() {
-      const res = await fetch("Data.json");
-      const val = await res.json();
-      this.Slider_imgs = val.Slider;
-      console.log(val.Slider)
+       try {
+        const res = await axios.get(`Data.json`);
+        this.Slider_imgs = res.data.Slider;
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
 

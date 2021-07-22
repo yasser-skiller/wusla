@@ -1,18 +1,17 @@
 <template>
-  <div class="About">
-    <h2>Hello from Bloger</h2>
-    <h3>{{Mes}}</h3>
-  </div>
+  <Dir dir_one="الصفحة الرئيسية" dir_two="مدونة وصلة" />
+  <AllBloger />
 </template>
 
 <script>
-export default {
-  data: function(){
-    return{
-      Mes: 'Haaaaaaaaaaaaaaaa',
-    }
-  },
-  name: 'Bloger'
-}
-</script>
+import AllBloger from "@/components/Local/AllBlogers/AllBlogers.vue";
+import Dir from "@/components/Global/Dir/Dir.vue";
 
+export default {
+  name: "Bloger",
+  components: {
+    AllBloger,
+    Dir,
+  },
+};
+</script>

@@ -1,18 +1,19 @@
 <template>
-  <div class="About">
-    <h2>Hello from Service</h2>
-    <h3>{{Mes}}</h3>
-  </div>
+    <Dir dir_one="الصفحة الرئيسية" dir_two="الخدمات الاستشارية" dir_three=""/>
+    <AllService/>
+
 </template>
 
 <script>
+import AllService from "@/components/Local/AllService/AllService.vue";
+import Dir from "@/components/Global/Dir/Dir.vue";
 export default {
-  data: function(){
-    return{
-      Mes: 'Haaaaaaaaaaaaaaaa',
-    }
-  },
+  
   name: 'Service',
+  components:{
+    Dir,
+    AllService
+  }
 }
 </script>
 

@@ -82,6 +82,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "Header",
   mounted() {
@@ -94,9 +96,12 @@ export default {
   },
   methods: {
     async fetchData() {
-      const res = await fetch("Data.json");
-      const val = await res.json();
-      this.imgs = val.Logo;
+      try {
+        const res = await axios.get(`Data.json`);
+        this.imgs = res.data.Logo;
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
 };

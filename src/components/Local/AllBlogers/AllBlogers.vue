@@ -1,13 +1,13 @@
 <template>
   <div>
+    
     <div class="container">
       <section class="d-flex flex-wrap justify-content-start my-5">
         <SimpaleSec
-          v-for="pro in programmes"
-          :key="pro.id"
-          :name="pro"
-          path="/ProgrammeDetails"
-          v-on:click="item = pro.id"
+          v-for="Bloger in Blogers"
+          :key="Bloger.id"
+          :name="Bloger"
+          path="/BlogersDetails"
         />
       </section>
     </div>
@@ -20,15 +20,9 @@ import SimpaleSec from "@/components/Global/SimpaleSec/SimpaleSec.vue";
 import axios from "axios";
 
 export default {
-  name: "AllProgrames",
+  name: "AllBloger",
   components: {
     SimpaleSec,
-  },
-   provide:{
-    user: "yasser"
-  },
-  created() {
-    console.log(`Injected property: ${this.user}`) // > Injected property: John Doe
   },
   mounted() {
     this.fetchData();
@@ -36,15 +30,14 @@ export default {
   data() {
     return {
       item: 0,
-      programmes: [],
+      Blogers: [],
     };
   },
- 
   methods: {
     async fetchData() {
       try {
         const res = await axios.get(`Data.json`);
-        this.programmes = res.data.ProgrammesHome;
+        this.Blogers = res.data.BlogersHome;
       } catch (error) {
         console.log(error);
       }

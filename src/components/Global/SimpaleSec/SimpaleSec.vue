@@ -1,28 +1,31 @@
 <template>
-  <div >
-      SimpaleSec
+  <div class="col-12 col-sm-8 col-md-6 col-lg-4 mx-auto my-3 px-4">
+    <div class="shadow-sm card heigth">
+      <img :src="name.img" class="card-img-top mx-auto" alt="img" />
+      <div class="card-body">
+        <h5 class="card-title">
+          {{ name.title }}
+        </h5>
+        <p class="card-text SecGrayColor">{{ name.txt }}</p>
+          <router-link v-bind:to="path" class="mainColor cursorPointer">
+            أقرا المزيد
+          </router-link>
+      </div>
+    </div>
   </div>
 </template>
 <script>
 export default {
   name: "SimpaleSec",
-//   mounted() {
-//     this.fetchData();
-//   },
-//   data() {
-//     return {
-//       Abouts: [],
-//     };
-//   },
-//   methods: {
-//     async fetchData() {
-//       const res = await fetch("Data.json");
-//       const val = await res.json();
-//       this.Abouts = val.About;
-//     },
-//   },
+  props: ["name", "path"],
 };
 </script>
 
 <style lang="scss" scoped>
+.card-img-top {
+  height: 200px;
+}
+.heigth {
+  min-height: 400px;
+}
 </style>

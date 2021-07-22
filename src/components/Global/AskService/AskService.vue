@@ -105,8 +105,8 @@ textarea,
   z-index: 10;
   top: 20px;
   bottom: 20px;
-  right: 10%;
-  left: 10%;
-  width: 80%;
+  right: 5%;
+  left: 5%;
+  width: 90%;
 }
 </style>

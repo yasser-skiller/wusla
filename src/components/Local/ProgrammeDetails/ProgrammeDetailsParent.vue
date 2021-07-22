@@ -44,7 +44,7 @@
             اطلب الخدمة
           </button>
       </div>
-      <div :class="{ active: isActive}" >
+      <div :class="{ active: isActive}" class="paclose">
         <div @click="isActive=true" class="close">x</div>
         <AskService />
       </div>
@@ -91,6 +91,9 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.paclose{
+  position: relative;
+}
 .close{
   position: fixed;
   width: 20px;

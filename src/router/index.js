@@ -57,7 +57,7 @@ const routes = [
     component: ServicesDetails,
   },
   {
-    path: '/:pathMatch(.*)*',
+    path: "/:pathMatch(.*)*",
     name: "NotFound",
     component: NotFound,
   },
@@ -66,11 +66,18 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
-  methods: { 
-    scrollToTop() {
-         window.scrollTo(0,0);
+  scrollBehavior(to, from, savedPosition) {
+    if (to.hash) {
+      return {
+        selector: to.hash,
+        offset: {
+          y: 32,
+        },
+      };
     }
- }
+
+    return savedPosition ? savedPosition : { x: 0, y: 0 };
+  },
 });
 
 export default router;

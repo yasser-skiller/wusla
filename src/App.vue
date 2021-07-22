@@ -2,7 +2,7 @@
   <div id="nav">
     <Header />
     <router-view />
-    <CallUs />
+    <CallUsParent />
     <Footer />
   </div>
 </template>
@@ -10,14 +10,14 @@
 <script>
 import Header from "@/components/Global/Header/Header.vue";
 import Footer from "@/components/Global/Footer/Footer.vue";
-import CallUs from "@/views/CallUs.vue";
+import CallUsParent from "@/components/Global/CallUsParent/CallUsParent.vue";
 
 export default {
   name: "App",
   components: {
     Header,
     Footer,
-    CallUs,
+    CallUsParent,
   },
 };
 </script>

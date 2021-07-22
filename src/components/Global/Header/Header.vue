@@ -59,7 +59,7 @@
                 ><a class="nav-link">البرامج التأهلية</a></router-link
               >
             </div>
-            <div class="d-flex">
+            <div class="d-flex flex-wrap">
               <router-link to="/Service" tag="li" class="nav-item"
                 ><a class="nav-link">الخدمات الاستشارية</a></router-link
               >

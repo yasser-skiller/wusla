@@ -6,7 +6,9 @@
       <h5 class="font-weight-bold">{{ dir_one }}</h5>
       <span class="mx-2">></span>
       <h5 class="font-weight-bold">{{ dir_two }}</h5>
-      <span class="mx-2">></span>
+      <span class="mx-2 secondSign">{{
+        dir_three.length > 0 ? ">" : null
+      }}</span>
       <h5 class="">{{ dir_three }}</h5>
     </div>
   </div>

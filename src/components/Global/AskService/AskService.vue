@@ -1,5 +1,5 @@
 <template>
-  <div class="parent ">
+  <div class="parent">
     <div class="style_form">
       <div
         class="
@@ -13,7 +13,9 @@
           col-11 col-md-8
         "
       >
-      <h4 class="text-center my-4">اطلب الخدمة</h4>
+        <div class="w-100">
+          <h4 class="text-center my-4">اطلب الخدمة</h4>
+        </div>
         <form>
           <div class="d-flex flex-wrap">
             <div class="form-group col-12 col-md-6">
@@ -106,6 +108,5 @@ textarea,
   right: 10%;
   left: 10%;
   width: 80%;
-  
 }
 </style>

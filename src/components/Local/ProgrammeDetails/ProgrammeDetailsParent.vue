@@ -44,7 +44,8 @@
             اطلب الخدمة
           </button>
       </div>
-      <div :class="{ active: isActive}">
+      <div :class="{ active: isActive}" >
+        <div @click="isActive=true" class="close">x</div>
         <AskService />
       </div>
     </section>
@@ -90,6 +91,16 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.close{
+  position: fixed;
+  width: 20px;
+    height: 20px;
+    top: 35px;
+    right: 285px;
+    z-index: 100;
+    color: crimson;
+    cursor: pointer;
+}
 .img {
   width: 350px;
   height: 250px;

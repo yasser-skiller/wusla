@@ -1,6 +1,5 @@
 <template>
   <div>
-    
     <div class="container">
       <section class="d-flex flex-wrap justify-content-start my-5">
         <SimpaleSec
@@ -26,6 +25,7 @@ export default {
   },
   mounted() {
     this.fetchData();
+    document.documentElement.scrollTop = 0;
   },
   data() {
     return {

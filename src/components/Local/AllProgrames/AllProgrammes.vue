@@ -8,6 +8,7 @@
           :name="pro"
           path="/ProgrammeDetails"
           v-on:click="item = pro.id"
+          
         />
       </section>
     </div>

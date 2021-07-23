@@ -5,7 +5,8 @@
     "icon_phone": "./picture/icon/phone.svg",
     "icon_mail": "./picture/icon/mail.svg",
     "icon_twitter": "./picture/icon/twitter.svg",
-    "icon_whatApp": "./picture/icon/whatsapp.svg"
+    "icon_whatApp": "./picture/icon/whatsapp.svg",
+    "connact":"./picture/img/connact.png"
   },
   "Slider": {
     "Slider_One": "./picture/img/Slider_One.png"

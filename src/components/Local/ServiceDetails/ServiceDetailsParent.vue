@@ -44,6 +44,7 @@ export default {
   },
   mounted() {
     this.fetchData();
+    document.documentElement.scrollTop = 0;
   },
   data() {
     return {

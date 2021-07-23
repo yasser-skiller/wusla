@@ -4,7 +4,7 @@
       <h2 class="font-weight-bold text-white text-center">تواصل معنا</h2>
     </div>
 
-    <img :src="Slider_imgs.Slider_One" />
+    <img :src="Slider_imgs.connact" />
 
     <div
       class="
@@ -83,7 +83,7 @@ export default {
     async fetchData() {
       const res = await fetch("Data.json");
       const val = await res.json();
-      this.Slider_imgs = val.Slider;
+      this.Slider_imgs = val.Logo;
     },
   },
 };

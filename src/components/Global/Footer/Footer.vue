@@ -36,7 +36,7 @@
             align-items-center
           "
         >
-          <div class="mt-5 border">
+          <div class="mt-5">
             <img :src="imgs.img_Logo" />
           </div>
 

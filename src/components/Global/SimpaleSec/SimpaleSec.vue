@@ -7,9 +7,9 @@
           {{ name.title }}
         </h5>
         <p class="card-text SecGrayColor">{{ name.txt }}</p>
-          <router-link v-bind:to="path" class="mainColor cursorPointer">
-            أقرا المزيد
-          </router-link>
+        <router-link :to="path" tag="li"  class="mainColor cursorPointer">
+          <a>أقرا المزيد</a>
+        </router-link>
       </div>
     </div>
   </div>

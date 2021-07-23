@@ -20,9 +20,6 @@
           :src="Slider_imgs.Slider_One"
           alt="First slide"
         />
-        <div class="carousel-caption d-none d-md-block">
-          <h1 class="font-weight-bold">تعميق أثر المشاريع التنموية</h1>
-        </div>
       </div>
       <div class="carousel-item">
         <img
@@ -30,9 +27,6 @@
           :src="Slider_imgs.Slider_One"
           alt="First slide"
         />
-         <div class="carousel-caption d-none d-md-block">
-          <h1 class="font-weight-bold">تعميق أثر المشاريع التنموية</h1>
-        </div>
       </div>
       <div class="carousel-item">
         <img
@@ -40,9 +34,7 @@
           :src="Slider_imgs.Slider_One"
           alt="Third slide"
         />
-         <div class="carousel-caption d-none d-md-block">
-          <h1 class="font-weight-bold">تعميق أثر المشاريع التنموية</h1>
-        </div>
+          
       </div>
     </div>
     <a
@@ -94,9 +86,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.carousel-item{
-  img{
-    min-height: 300px;
-  }
-}
+
 </style>

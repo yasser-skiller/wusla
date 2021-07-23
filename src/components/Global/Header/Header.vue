@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-4">
+  <div class="mb-4" id="Header">
     <nav class="navbar navbar-expand-lg navbar-light col-11 mx-auto">
       <button
         class="navbar-toggler"
@@ -140,5 +140,8 @@ ul {
 .router-link-active a,
 .fas {
   color: var(--mainColor) !important;
+}
+.nav-link{
+  font-weight: 700;
 }
 </style>

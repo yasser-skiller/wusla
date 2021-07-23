@@ -38,6 +38,7 @@ export default {
       try {
         const res = await axios.get(`Data.json`);
         this.Blogers = res.data.BlogersHome;
+        console.log(res.data.BlogersHome)
       } catch (error) {
         console.log(error);
       }

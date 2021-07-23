@@ -1,6 +1,8 @@
 <template>
-  <Dir dir_one="الصفحة الرئيسية" dir_two="مدونة وصلة" />
-  <AllBloger />
+  <div>
+    <Dir dir_one="الصفحة الرئيسية" dir_two="مدونة وصلة" dir_three="" />
+    <AllBloger />
+  </div>
 </template>
 
 <script>

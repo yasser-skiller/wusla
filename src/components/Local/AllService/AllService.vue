@@ -7,6 +7,10 @@
           :key="Service.id"
           :name="Service"
           path="/ServicesDetails"
+          @click="
+            item = Service.id;
+            emitServicesDetailsId();
+          "
         />
       </section>
     </div>
@@ -15,6 +19,7 @@
 
 <script>
 import SimpaleSec from "@/components/Global/SimpaleSec/SimpaleSec.vue";
+import { EventBus } from "@/main.js";
 
 import axios from "axios";
 
@@ -29,18 +34,24 @@ export default {
   },
   data() {
     return {
-      item: 0,
+      item: null,
       Services: [],
     };
   },
   methods: {
     async fetchData() {
       try {
-        const res = await axios.get(`Data.json`);
-        this.Services = res.data.ServicesHome;
+        const res = await axios.get(
+          `https://waslapanel.thinkvolc.com/api/services/`
+        );
+        this.Services = res.data;
+        console.log(res.data);
       } catch (error) {
         console.log(error);
       }
+    },
+    emitServicesDetailsId() {
+      EventBus.$emit("ServicesDetails", this.item);
     },
   },
 };

@@ -42,19 +42,22 @@ const routes = [
     component: CallUs,
   },
   {
-    path: "/ProgrammeDetails",
+    path: "/ProgrammeDetails/:id",
     name: "ProgrammeDetails",
     component: ProgrammeDetails,
+    props: true,
   },
   {
-    path: "/BlogersDetails",
+    path: "/BlogersDetails/:id",
     name: "BlogersDetails",
     component: BlogersDetails,
+    props: true,
   },
   {
-    path: "/ServicesDetails",
+    path: "/ServicesDetails/:id",
     name: "ServicesDetails",
     component: ServicesDetails,
+    props: true,
   },
   {
     path: "/:pathMatch(.*)*",
@@ -66,7 +69,6 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
-  
 });
 
 export default router;

@@ -20,7 +20,7 @@ export default {
     BlogersDetailsParent,
     Dir,
     Title,
-    AllBloger
+    AllBloger,
   },
 };
 </script>

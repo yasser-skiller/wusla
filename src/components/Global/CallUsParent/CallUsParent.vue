@@ -18,46 +18,66 @@
         col-11 col-md-8
       "
     >
-      <form>
-        <div class="d-flex flex-wrap">
-          <div class="form-group col-12 col-md-6">
+      <form id="Form">
+        <div class="d-flex flex-wrap justify-content-between">
+          <div class="form-group col-12 col-md-6 px-3 mb-2">
             <label for="exampleInputPassword1">الاسم</label>
-            <input type="text" class="form-control" placeholder="الاسم" />
+            <input
+              type="text"
+              class="form-control my-2"
+              name="name"
+              placeholder="الاسم"
+            />
           </div>
-          <div class="form-group col-12 col-md-6">
+          <div class="form-group col-12 col-md-6 px-3 mb-2">
             <label for="exampleInputPassword1">الجهة</label>
-            <input type="text" class="form-control" placeholder="الجهة" />
+            <input
+              type="text"
+              name="entity"
+              class="form-control my-2"
+              placeholder="الجهة"
+            />
           </div>
         </div>
-        <div class="d-flex flex-wrap">
-          <div class="form-group col-12 col-md-6">
+        <div class="d-flex flex-wrap justify-content-between">
+          <div class="form-group col-12 col-md-6 px-3 mb-2">
             <label for="exampleInputEmail1">البريد الالكتروني </label>
             <input
               type="email"
-              class="form-control"
+              class="form-control my-2"
+              name="email"
               aria-describedby="emailHelp"
               placeholder="البريد الالكتروني "
             />
           </div>
-          <div class="form-group col-12 col-md-6">
+          <div class="form-group col-12 col-md-6 px-3 mb-2">
             <label for="exampleInputPassword1">رقم الجوال</label>
             <input
+              name="number"
               type="number"
-              class="form-control"
+              class="form-control my-2"
               placeholder="رقم الجوال"
             />
           </div>
         </div>
 
-        <div class="form-group col-12">
+        <div class="form-group col-12 mb-2 px-3">
           <label>الموضوع </label>
-          <textarea class="form-control" rows="3"></textarea>
+          <textarea class="form-control" name="subject" rows="3"></textarea>
         </div>
 
         <div class="d-flex justify-content-center align-items-center">
           <button
-            type="submit"
-            class="mt-4 btn btn-primary bg-MainColor border border-danger"
+            @click="onSubmit"
+            type="onSubmit"
+            class="
+              mt-4
+              px-4
+              py-2
+              btn btn-primary
+              bg-MainColor
+              border border-danger
+            "
           >
             ارسال
           </button>
@@ -69,6 +89,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "CallUsParent",
   mounted() {
@@ -77,6 +99,7 @@ export default {
   data() {
     return {
       Slider_imgs: [],
+      order: "",
     };
   },
   methods: {
@@ -85,6 +108,20 @@ export default {
       const val = await res.json();
       this.Slider_imgs = val.Logo;
     },
+  },
+  async onSubmit(e) {
+    e.preventdefault()
+    console.log(3);
+    const info = document.querySelector("Form").serialize();
+    console.log(info);
+    axios
+      .post(`https://waslapanel.thinkvolc.com/api/contact`,info)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   },
 };
 </script>
@@ -109,12 +146,16 @@ export default {
     height: 300px;
   }
 }
-.rounded {
+.rounded,
+textarea,
+input,
+button {
   border-radius: 20px !important;
 }
-.space{
+
+.space {
   height: 350px;
-  @media (max-width:535px) {
+  @media (max-width: 535px) {
     height: 460px;
   }
 }

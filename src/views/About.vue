@@ -15,7 +15,7 @@ export default {
   name: "About",
   components: {
     AboutSec,
-    AboutAllTaskes
+    AboutAllTaskes,
   },
 };
 </script>

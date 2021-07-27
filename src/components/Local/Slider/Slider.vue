@@ -1,60 +1,15 @@
 <template>
-  <div
-    id="carouselExampleIndicators"
-    class="carousel slide bg-gray"
-    data-ride="carousel"
-  >
-    <ol class="carousel-indicators">
-      <li
-        data-target="#carouselExampleIndicators"
-        data-slide-to="0"
-        class="active"
-      ></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img
-          class="d-block w-100"
-          :src="Slider_imgs.Slider_One"
-          alt="First slide"
-        />
-      </div>
-      <div class="carousel-item">
-        <img
-          class="d-block w-100"
-          :src="Slider_imgs.Slider_One"
-          alt="First slide"
-        />
-      </div>
-      <div class="carousel-item">
-        <img
-          class="d-block w-100"
-          :src="Slider_imgs.Slider_One"
-          alt="Third slide"
-        />
-          
-      </div>
+  <div class="Slider">
+    <div class="slide">
+      <img :src="Slider_imgs[Select]" />
     </div>
-    <a
-      class="carousel-control-prev"
-      href="#carouselExampleIndicators"
-      role="button"
-      data-slide="prev"
-    >
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a
-      class="carousel-control-next"
-      href="#carouselExampleIndicators"
-      role="button"
-      data-slide="next"
-    >
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
+    <!-- <div class="paPatrent"> -->
+    <!-- <span class="pa"></span> -->
+    <!-- <span class="pa"></span>
+      <span class="pa"></span>
+      <span class="pa"></span> -->
+
+    <!-- </div> -->
   </div>
 </template>
 
@@ -63,28 +18,81 @@ import axios from "axios";
 
 export default {
   name: "Slider",
-   mounted() {
+  mounted() {
     this.fetchData();
+    this.RandomImg();
+    // this.RandomPa();
   },
   data() {
     return {
+      Select: 0,
       Slider_imgs: [],
     };
   },
   methods: {
     async fetchData() {
-       try {
-        const res = await axios.get(`Data.json`);
-        this.Slider_imgs = res.data.Slider;
+      try {
+        const res = await axios.get(
+          `https://waslapanel.thinkvolc.com/api/slider`
+        );
+        this.Slider_imgs = res.data;
+        this.Select = 0;
+        console.log(res.data);
+        console.log(this.Slider_imgs.length);
       } catch (error) {
         console.log(error);
       }
     },
+    // RandomPa(){
+    //   let NewPa = document.createElement('span');
+    //     NewPa.classList.add('pa')
+    //     document.querySelector('.paPatrent').appendChild(NewPa);
+    // },
+    RandomImg() {
+      setInterval(() => {
+        if (this.Select + 1 === this.Slider_imgs.length) {
+          this.Select = -1;
+          this.Select++;
+        } else {
+          this.Select++;
+        }
+      }, 5000);
+    },
   },
-
 };
 </script>
 
 <style lang="scss" scoped>
-
+.Slider {
+  position: relative;
+  .paPatrent {
+    position: absolute;
+    width: 100%;
+    height: fit-content;
+    bottom: 50px;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    span {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: gray;
+      margin: 0 5px;
+    }
+  }
+  .slide {
+    width: 100%;
+    height: 450px;
+    @media (max-width: 767px) {
+      height: 200px;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
 </style>

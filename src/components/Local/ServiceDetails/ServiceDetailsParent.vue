@@ -1,21 +1,21 @@
 <template>
   <div class="container">
     <section class="d-flex flex-wrap">
-      <div class="col-12 col-md-6 px-4">
+      <div class="col-12 col-md-5 px-4">
         <div class="d-flex justify-content-center align-items-center my-3">
-          <img :src="ServicesDetails.img" class="img" />
+          <img :src="ServicesDetails.thumbnail" class="img" />
         </div>
       </div>
       <div class="col-12 col-md-6 px-4 my-3">
-        <h4>{{ ServicesDetails.title }}</h4>
-        <p class="SecGrayColor">{{ ServicesDetails.txt }}</p>
+        <h4>وصف البرنامج</h4>
+        <p class="SecGrayColor">{{ ServicesDetails.description }}</p>
       </div>
     </section>
     <section class="my-5 px-3">
       <h4>محتويات الخدمة</h4>
       <p class="SecGrayColor">خطة استراتيجية اتصالية تشمل</p>
       <ul class="my-3">
-        <li v-for="item in ServicesDetails.Des" :key="item.id">{{ item }}</li>
+        <li v-for="item in ServicesDetails.content" :key="item.id">{{ item }}</li>
       </ul>
     </section>
 
@@ -35,6 +35,8 @@
 </template>
 <script>
 import axios from "axios";
+import { EventBus } from "@/main.js";
+
 import AskService from "@/components/Global/AskService/AskService.vue";
 
 export default {
@@ -42,21 +44,33 @@ export default {
   components: {
     AskService,
   },
-  mounted() {
-    this.fetchData();
-    document.documentElement.scrollTop = 0;
-  },
   data() {
     return {
+      item: null,
       isActive: true,
       ServicesDetails: [],
     };
   },
+  created() {
+    this.item = this.$route.params.id;
+    EventBus.$on("ServicesDetails", (value) => {
+      this.item = value;
+    });
+  },
+  mounted() {
+    setTimeout(() => {
+      this.fetchData();
+    }, 200);
+    document.documentElement.scrollTop = 0;
+  },
   methods: {
     async fetchData() {
       try {
-        const res = await axios.get(`Data.json`);
-        this.ServicesDetails = res.data.ServicesHome[0].Details;
+        const res = await axios.get(
+          `https://waslapanel.thinkvolc.com/api/services/${this.item}`
+        );
+        this.ServicesDetails = res.data;
+        console.log(res.data);
       } catch (error) {
         console.log(error);
       }

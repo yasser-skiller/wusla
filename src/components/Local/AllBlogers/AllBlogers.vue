@@ -7,6 +7,10 @@
           :key="Bloger.id"
           :name="Bloger"
           path="/BlogersDetails"
+          @click="
+            ite = Bloger.id;
+            emitBlogersDetailsId();
+          "
         />
       </section>
     </div>
@@ -15,6 +19,7 @@
 
 <script>
 import SimpaleSec from "@/components/Global/SimpaleSec/SimpaleSec.vue";
+import { EventBus } from "@/main.js";
 
 import axios from "axios";
 
@@ -29,19 +34,24 @@ export default {
   },
   data() {
     return {
-      item: 0,
+      ite: null,
       Blogers: [],
     };
   },
   methods: {
     async fetchData() {
       try {
-        const res = await axios.get(`Data.json`);
-        this.Blogers = res.data.BlogersHome;
-        console.log(res.data.BlogersHome)
+        const res = await axios.get(
+          `https://waslapanel.thinkvolc.com/api/posts`
+        );
+        this.Blogers = res.data;
+        console.log(res.data);
       } catch (error) {
         console.log(error);
       }
+    },
+    emitBlogersDetailsId() {
+      EventBus.$emit("IdBlogerValue", this.ite);
     },
   },
 };

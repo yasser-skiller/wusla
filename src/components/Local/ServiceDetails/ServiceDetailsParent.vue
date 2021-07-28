@@ -28,9 +28,10 @@
         اطلب الخدمة
       </button>
     </div>
-    <div :class="{ active: isActive }">
-      <AskService />
-    </div>
+    <div :class="{ active: isActive }" class="paclose">
+        <div @click="isActive = true" class="close">x</div>
+        <AskService />
+      </div>
   </div>
 </template>
 <script>
@@ -86,5 +87,19 @@ export default {
 }
 .active {
   display: none;
+}
+
+.paclose {
+  position: relative;
+}
+.close {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  top: 35px;
+  right: 285px;
+  z-index: 100;
+  color: crimson;
+  cursor: pointer;
 }
 </style>

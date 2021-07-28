@@ -4,7 +4,7 @@
       <img :src="Blogers_Details.thumbnail" class="img" />
     </div>
     <div class="my-5">
-      <h5>{{ Blogers_Details.title }}</h5>
+      <h5 class="fw-bold">{{ Blogers_Details.title }}</h5>
       <p class="SecGrayColor my-3">{{ Blogers_Details.description }}</p>
     </div>
   </div>

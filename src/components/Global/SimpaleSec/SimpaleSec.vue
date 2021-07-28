@@ -3,7 +3,7 @@
     <div class="shadow-sm card heigth">
       <img :src="name.thumbnail" class="card-img-top mx-auto" alt="img" />
       <div class="card-body">
-        <h5 class="card-title">
+        <h5 class="card-title fw-bold">
           {{ name.title }}
         </h5>
         <p class="card-text SecGrayColor">{{ name.description }}</p>

@@ -67,9 +67,12 @@
         </div>
 
         <div class="d-flex justify-content-center align-items-center">
-          <button
-            @click="onSubmit"
-            type="onSubmit"
+          
+        </div>
+      </form>
+      <p  v-on:click="ubmit">wertwert</p>
+      <button
+            
             class="
               mt-4
               px-4
@@ -81,15 +84,13 @@
           >
             ارسال
           </button>
-        </div>
-      </form>
     </div>
     <div class="space"></div>
   </div>
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
 
 export default {
   name: "CallUsParent",
@@ -109,19 +110,19 @@ export default {
       this.Slider_imgs = val.Logo;
     },
   },
-  async onSubmit(e) {
-    e.preventdefault()
+  ubmit() {
+    
     console.log(3);
-    const info = document.querySelector("Form").serialize();
-    console.log(info);
-    axios
-      .post(`https://waslapanel.thinkvolc.com/api/contact`,info)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    // const info = document.querySelector("Form").serialize();
+    // console.log(info);
+    // axios
+    //   .post(`https://waslapanel.thinkvolc.com/api/contact`,info)
+    //   .then((res) => {
+    //     console.log(res);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
   },
 };
 </script>

@@ -3,7 +3,7 @@
    <div class="p-2">
       <div class="border bg-white  border-radius p-2">
       <img :src="name.img" />
-      <h6 class="my-3">{{ name.title }}</h6>
+      <h6 class="my-3 fw-bold">{{ name.title }}</h6>
       <ul>
         <li class="SecGrayColor MainFont my-2">{{ name.txt_one }}</li>
         <li class="SecGrayColor MainFont">{{ name.txt_two }}</li>

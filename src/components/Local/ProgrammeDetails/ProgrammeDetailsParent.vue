@@ -7,7 +7,7 @@
         </div>
       </div>
       <div class="col-12 col-md-6 px-4">
-        <h4>وصف البرنامج</h4>
+        <h4 class="fw-bold mb-3">وصف البرنامج</h4>
         <p>{{ programmes_Details.description }}</p>
         <ul class="SecGrayColor">
           <li v-for="ele in programmes_Details.programmEle" :key="ele.id">
@@ -18,7 +18,7 @@
     </section>
     <section class="my-5">
       <div class="text-center">
-        <h4>محتوي البرنامج</h4>
+        <h4 class="fw-bold">محتوي البرنامج</h4>
         <p>{{ programmes_Details.content }}</p>
       </div>
       <section class="d-flex flex-wrap justify-content-start my-5">
@@ -32,7 +32,7 @@
         <p class="font-weight-bold">
           مدة البرنامج :
           <span class="mainColor"
-            ><span>{{ programmes_Details.duration }}</span>
+            ><span class="fw-bold">{{ programmes_Details.duration }}</span>
           </span>
         </p>
       </div>

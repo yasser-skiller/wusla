@@ -7,12 +7,12 @@
         </div>
       </div>
       <div class="col-12 col-md-6 px-4 my-3">
-        <h4>وصف البرنامج</h4>
+        <h4 class="fw-bold mb-3">وصف البرنامج</h4>
         <p class="SecGrayColor">{{ ServicesDetails.description }}</p>
       </div>
     </section>
     <section class="my-5 px-3">
-      <h4>محتويات الخدمة</h4>
+      <h4 class="fw-bold mb-3">محتويات الخدمة</h4>
       <p class="SecGrayColor">خطة استراتيجية اتصالية تشمل</p>
       <ul class="my-3">
         <li v-for="item in ServicesDetails.content" :key="item.id">{{ item }}</li>
